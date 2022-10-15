@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="heading">
+        <p><a href="{% url 'home' %}">Back to Home</a></p>
+        <h3>Examination Sheet</h3>
+    </div>
+
+    <table class="content-table">
+
+        <tr>
+            <th>Batch</th>
+            <th>Exam Starts On</th>
+            <th>Time Table</th>
+        </tr>
+        {% for e in exam %}
+        <tr>
+            <td>{{e.batch}}</td>
+            <td>{{e.exam_date}}</td>
+            <td> <a href="/media/{{e.exam_sheet_pdf}}">View</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+    }
+
+    .content-table th {
+        background-color: #009879;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .content-table td {
+        padding: 12px 15px;
+    }
+
+    .content-table tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tr:nth-of-type(odd) {
+        background-color: #f3f3f3;
+    }
+</style>
+
+{% endblock %}

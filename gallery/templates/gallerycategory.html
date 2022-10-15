@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main id="tg-main" class="tg-main tg-haslayout">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12">
+                <div id="tg-content" class="tg-content">
+                    <div class="tg-titleborder">
+                        <div> <a href="{% url 'gallery' %}">back to categories</a> </div>
+                        <h2>Gallery</h2>
+
+                    </div>
+                    <div class="tg-gallerymasnory">
+
+                        <div id="tg-galleryfilterable" class="tg-galleryfilterable">
+                            {% for g in gallery %}
+                            <div class="tg-masonrygrid finalresult">
+                                <figure>
+                                    <img src="/media/{{g.image}}" alt="image description">
+                                    <a class="tg-btnviewimg" href="/media/{{g.image}}"
+                                        data-rel="prettyPhoto[gallery]">+</a>
+                                </figure>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="heading">
+        <p><a href="{% url 'qp_link' %}">Back to Batch</a></p>
+        <h3>Previous Years Question Papers</h3>
+    </div>
+
+    <div>
+        <table class="content-table">
+            <tr>
+
+                <th>Subject</th>
+                <th>Year of Examination held</th>
+                <th></th>
+            </tr>
+            {% for q in qp %}
+            <tr>
+
+
+                <td>{{q.sub_name}}</a></td>
+                <td>{{q.year_of_qp}}</td>
+                <td><a href="/media/{{q.qp}}">Click here</a></td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+    }
+
+    .content-table th {
+        background-color: #009879;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .content-table td {
+        padding: 12px 15px;
+    }
+
+    .content-table tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tr:nth-of-type(odd) {
+        background-color: #f3f3f3;
+    }
+</style>
+{% endblock content %}

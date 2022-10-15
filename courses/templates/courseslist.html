@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--************************************
+				Header End
+		*************************************-->
+
+<!--************************************
+				Inner Banner Start
+		*************************************-->
+{% block content %}
+
+<div class="tg-innerbanner">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<ol class="tg-breadcrumb">
+					<li><a href="{% url 'home' %}">home</a></li>
+					<li class="tg-active">courses</li>
+
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<!--************************************
+				Inner Banner End
+		*************************************-->
+<!--************************************
+				Main Start
+		*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<div class="container">
+		<div class="row">
+			<div id="tg-twocolumns" class="tg-twocolumns">
+				<div class="col-xs-12 col-sm-8 col-md-12 col-lg-12 pull-right">
+					<div id="tg-content" class="tg-content">
+
+						<div class="tg-courses tg-list">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									{% for c in course %}
+									<article class="tg-themepost tg-course">
+										<figure class="tg-featuredimg">
+											<a href="javascript:void(0);">
+												<img src="/media/{{c.course_image}}" alt="image description"
+													width="300px">
+											</a>
+										</figure>
+										<div class="tg-themepostcontent">
+											<ul class="tg-themeposttags">
+												<li><a href="">{{c.course_name}}</a></li>
+
+											</ul>
+											<div class="tg-themeposttitle">
+												<h3><a href="javascript:void(0);">{{c.course_brief}}</a></h3>
+											</div>
+											<div class="tg-description">
+												<p>{{c.cours_desc}}</p>
+											</div>
+										</div>
+									</article>
+									{% endfor %}
+								</div>
+
+
+							</div>
+							</article>
+						</div>
+
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</main>
+
+{% endblock %}
+<!--************************************
+				Main End
+		*************************************-->
+<!--************************************
+				Footer Start
+		*************************************-->

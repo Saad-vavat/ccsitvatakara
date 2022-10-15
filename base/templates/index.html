@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!--************************************
+				Header End
+		*************************************-->
+<!--************************************
+				Home Slider Start
+		*************************************-->
+{% block content %}
+<div class="clearfix"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="tg-homebannervtwo">
+				<div id="tg-homeslider" class="tg-homeslider owl-carousel tg-btnround tg-haslayout">
+
+					{% for s in slider %}
+					<div class="item">
+						<figure>
+							<img src="/media/{{s.image}}" alt="image description">
+							<figcaption class="tg-slidercontent">
+								<div class="tg-slidercontentbox">
+									<a class="tg-btn" href="{% url 'campuslife' %}">Read More</a>
+									<div class="tg-titledescription">
+										<h1>CCSIT VATAKARA</h1>
+										<div class="tg-description">
+											<p> CENTRE FOR COMPUTER SCIENCE AND INFORMATION TECHNOLOGY (CCSIT) </span>
+												Vatakara previously known as MCA Centre Vatakara was established in
+												1998.This is one of the...</p>
+										</div>
+									</div>
+								</div>
+							</figcaption>
+						</figure>
+					</div>
+					{% endfor %}
+
+				</div>
+				<div class="tg-noticeboardarea">
+					<div class="tg-widget tg-widgetadmissionform">
+						<div class="tg-widgetcontent">
+							<div>
+								<h3>Notice Board</h3>
+							</div>
+							<ul class="notice">
+								{% for n in notice %}
+								<li>
+									<a style="color: white;">{{n.notice}}</a>
+								</li>
+								{% endfor %}
+
+							</ul>
+
+						</div>
+					</div>
+					<!-- <div class="tg-widget tg-widgetadmissionform">
+						<div class="tg-widgetcontent">
+							<h3>Alumni Register Here</h3>
+							<a class="btn btn-success" href="{% url 'result' %}" role="button">Login</a>
+						</div>
+					</div> -->
+				</div>
+			</div>
+			<div class="tg-tickerbox">
+				<span>Daily Alerts:</span>
+				<div id="tg-ticker" class="tg-ticker owl-carousel">
+					{% for a in alert %}
+					<div class="item">
+
+						<div class="tg-description">
+							<p>{{a.alert_desc}}</p>
+						</div>
+
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--************************************
+				Home Slider End
+		*************************************-->
+<!--************************************
+				Main Start
+		*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<div class="container">
+		<div class="row">
+			<div id="tg-twocolumns" class="tg-twocolumns">
+				<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+					<div id="tg-content" class="tg-content">
+						<section class="tg-sectionspace tg-haslayout">
+							<div class="tg-shortcode tg-welcomeandgreeting">
+								<figure><img src="{% static 'images/ccsit vatakara.jpg' %}" alt="image description"
+										style="width:200px;">
+								</figure>
+								<div class="tg-shortcodetextbox">
+									<h2>GET THE <span style="color: #0c426f;font-weight: 600;">BEST KNOWLEDGE
+											FROM US</span> </h2>
+									<div class="tg-description">
+										<p>“If future generations are to remember us more with gratitude than sorrow, we
+											must achieve more than just the miracles of technology. We must also leave
+											them a glimpse of the world as it was created, not just as it looked when we
+											got through with it.”</p>
+									</div>
+									<span class="tg-name">Lyndon B. Johnson, </span>
+									<span class="tg-designation"> Former President of the United States of
+										America</span>
+									<!-- <div class="tg-btnpluslogo">
+										<a class="tg-btn" href="{% url 'campuslife' %}">Load More</a>
+										<strong class="tg-universitylogo"><a href="javascript:void(0);"><img
+													src="{% static 'images/ccsit logo.png' %}" alt="image description"
+													style="width: 250px;"></a></strong>
+									</div> -->
+								</div>
+							</div>
+						</section>
+
+
+						<section class="tg-sectionspace tg-haslayout">
+							<div class="tg-latestnews">
+								<div class="tg-borderheading">
+									<h2>Gallery</h2>
+								</div>
+
+								<div id="tg-latestnewsslider" class="tg-latestnewsslider owl-carousel tg-posts">
+									{% for g in gallery %}
+									<div class="item">
+										<article class="tg-themepost tg-newspost">
+
+											<figure class="tg-featuredimg">
+												<a href="javascript:void(0);">
+													<img src="/media/{{g.home_gall}}" alt="image description">
+												</a>
+											</figure>
+										</article>
+									</div>
+									{% endfor %}
+								</div>
+								<div class="tg-btnsbox">
+									<a class="tg-btn" href="{% url 'gallery' %}">Load More</a>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ">
+					<aside id="tg-sidebar" class="tg-sidebar ">
+
+
+
+
+						<div class="tg-widget tg-widgetdownload">
+							<div class="tg-widgettitle">
+								<h3>Downloads</h3>
+							</div>
+							<div class="tg-widgetcontent">
+
+								<ul>
+									<li>
+										<a href="{% url 'exam' %}">
+											<i class="fa fa-calendar-check-o "></i>
+											<span>Examination Date Sheet</span>
+										</a>
+									</li>
+
+									<li>
+										<a href="{% url 'qp_link' %}">
+											<i class="fa fa-bookmark-o"></i>
+											<span>Previous years question papers</span>
+										</a>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+						<section class="tg-sectionspace tg-haslayout">
+							<div class="tg-borderheading">
+								<h2>Latest Events</h2>
+							</div>
+							<div class="tg-events">
+
+								<article class="tg-themepost tg-themepostleftimg ">
+									{% for e in event %}
+									<figure class="tg-featuredimg">
+
+										<img src="/media/{{e.event_image}}" alt="image description" width="150px">
+
+									</figure>
+									<div class="tg-themepostcontent">
+										<ul class="tg-matadata">
+											<li>
+												<a href="javascript:void(0);">
+													<i class="fa fa-calendar"></i>
+													<span style="font-weight:bold;">{{e.event_date}}</span>
+												</a>
+											</li>
+										</ul>
+										<div class="tg-themeposttitle">
+											<h3 style="font-weight:bold;"><a
+													href="javascript:void(0);">{{e.event_name}}</a></h3>
+										</div>
+										<div class="tg-description">
+											<p>{{e.event_desc}}</p>
+										</div>
+									</div>
+									{% endfor %}
+								</article>
+						</section>
+					</aside>
+				</div>
+			</div>
+
+</main>
+
+<div style="padding: 15px;">
+	<div class="tg-borderheading">
+		<h2>Testimonial</h2>
+	</div>
+	<div class="wrapper">
+		{% for t in testimonial %}
+		<div class="box">
+
+			<p>"{{t.subject}}"</p>
+			<div class="content">
+				<div class="info">
+					<div class="name">{{t.name}}</div>
+					<div class="job">{{t.batch}}</div>
+
+				</div>
+				<div class="image">
+					<img src="/media/{{t.image}}" alt="">
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+</div>
+
+
+<!--************************************
+				Main End
+		*************************************-->
+
+<style>
+	::selection {
+		background: rgba(23, 162, 184, 0.3);
+	}
+
+	.wrapper {
+
+		max-width: 1200px;
+		margin: auto;
+		padding: 0 20px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.wrapper .box {
+		background: #fff;
+		width: calc(33% - 10px);
+		padding: 25px;
+		border-radius: 3px;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+	}
+
+	.wrapper .box i.quote {
+		font-size: 20px;
+		color: #17a2b8;
+	}
+
+	.wrapper .box .content {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 10px;
+	}
+
+	.box .info .name {
+		font-weight: 600;
+		font-size: 17px;
+	}
+
+	.box .info .job {
+		font-size: 16px;
+		font-weight: 500;
+		color: #17a2b8;
+	}
+
+	.box .info .stars {
+		margin-top: 2px;
+	}
+
+	.box .info .stars i {
+		color: #17a2b8;
+	}
+
+	.box .content .image {
+		height: 75px;
+		width: 75px;
+		padding: 3px;
+		background: #17a2b8;
+		border-radius: 50%;
+	}
+
+	.content .image img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+		border: 2px solid #fff;
+	}
+
+	.box:hover .content .image img {
+		border-color: #fff;
+	}
+
+	@media (max-width: 1045px) {
+		.wrapper .box {
+			width: calc(50% - 10px);
+			margin: 10px 0;
+		}
+	}
+
+	@media (max-width: 702px) {
+		.wrapper .box {
+			width: 100%;
+		}
+	}
+</style>
+
+{% endblock %}

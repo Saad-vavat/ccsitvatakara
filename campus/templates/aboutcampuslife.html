@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--************************************
+				Header End
+		*************************************-->
+
+<!--************************************
+				Inner Banner Start
+		*************************************-->
+{% block content %}
+<div class="tg-innerbanner">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<ol class="tg-breadcrumb">
+					<li><a href="{% url 'home' %}">home</a></li>
+					<li class="tg-active">campus life</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<!--************************************
+				Inner Banner End
+		*************************************-->
+<!--************************************
+				Main Start
+		*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+	<div class="container">
+		<div class="row">
+			<div id="tg-twocolumns" class="tg-twocolumns">
+				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+					<aside id="tg-sidebar" class="tg-sidebar">
+						<div class="tg-widget tg-widgetaboutusnav">
+							<div class="tg-widgettitle">
+								<h3>About Us</h3>
+							</div>
+							<div class="tg-widgetcontent">
+								<ul>
+
+									<li><a href="javascript:void(0);">Vision &amp; Mission</a></li>
+
+									<li><a href="javascript:void(0);">Objectives</a></li>
+									<li><a href="javascript:void(0);">Our Identity</a></li>
+
+
+								</ul>
+							</div>
+						</div>
+					</aside>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+					<div class="row">
+						<div id="tg-content" class="tg-content">
+							<div class="tg-aboutus tg-campuslife">
+								<div class=" tg-description">
+									<h3 style="font-size:2em; padding:12px">Campus Life</h3>
+									<p class="about">
+										CENTRE FOR COMPUTER SCIENCE AND INFORMATION TECHNOLOGY (CCSIT) </span> Vatakara
+										previously
+										known as MCA Centre Vatakara was established in 1998.
+										This is one of the oldest regional centres directly run by the university of
+										calicut. CCSIT is well known higher
+										education institute in vatakara municipality.It is situated only 3 kms away from
+										vatakara railway station and private bus stand.</p>
+								</div>
+								<div class="row"
+									style="display: flex; justify-content: center; flex-wrap: wrap; padding: 5px;">
+									{% for v in videoimage %}
+									<video class="video-fluid" autoplay loop muted>
+										<source src="/media/{{v.video}}" type="video/mp4">
+									</video>
+									<img src="/media/{{v.image}}" alt="" width="350px">
+
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<!--************************************
+				Main End
+		*************************************-->
+
+<style>
+	.about {
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		padding: 12px;
+		font-size: 1.2em;
+
+		cursor: pointer;
+		color: black;
+		border-radius: 10px;
+		line-height: 30px;
+		background: #eee;
+		box-shadow: 0 8px 8px -4px lightblue;
+	}
+</style>
+
+
+{% endblock %}

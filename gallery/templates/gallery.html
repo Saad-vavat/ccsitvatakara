@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--************************************
+				Inner Banner Start
+		*************************************-->
+{% block content %}
+<style>
+	.gall-container {
+		display: flex;
+		background: rgba(185, 184, 184, .3);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.card {
+		background: white;
+		width: 150px;
+		height: 300px;
+		margin: 10px;
+		border-radius: 15px;
+	}
+
+	.card p {
+		display: block;
+		text-align: center;
+		padding-top: 15px;
+		font-size: medium;
+		font-weight: 600;
+	}
+
+	.card-image {
+		/* background-color: aqua; */
+		height: 150px;
+		margin-bottom: 40px;
+		background-size: cover;
+
+	}
+
+	.card a {
+		background-color: #3575d3;
+		color: white;
+		padding: 10px 20px;
+		display: block;
+		text-align: center;
+		margin: 30px 30px;
+		border-radius: 10px;
+	}
+
+	.card:hover {
+		background-color: rgb(30, 148, 93);
+		color: white;
+		cursor: pointer;
+		transform: scale(1.03);
+		transition: all 1s ease;
+	}
+</style>
+
+<div class="tg-innerbanner">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<ol class="tg-breadcrumb">
+					<li><a href="{% url 'home' %}">home</a></li>
+					<li class=" tg-active">Gallery</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<!--************************************
+				Inner Banner End
+		*************************************-->
+<!--************************************
+				Main Start
+		*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+
+	<section class="gall-container">
+		{% for c in cat %}
+		<div class="card">
+			<div class="card-image"><img src="/media/{{c.poster}}" alt="" width="150px"></div>
+			<p>{{c.name}}</p>
+
+			<a href="{% url 'gallery-cat' c.cat_id %}">View</a>
+		</div>
+		{% endfor %}
+
+	</section>
+
+</main>
+<!--************************************
+				Main End
+		*************************************-->
+{% endblock %}
